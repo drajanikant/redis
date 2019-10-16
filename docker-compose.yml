@@ -1,0 +1,14 @@
+version: '3'
+services:
+  web:
+    build: .
+    ports:
+    - "5000:5000"
+    - "6379:6379"
+    volumes:
+    - .:/code
+    - ./data:/var/log
+    links:
+    - redis
+  redis:
+    image: redis
